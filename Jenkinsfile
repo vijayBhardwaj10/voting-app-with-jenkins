@@ -3,17 +3,17 @@ pipeline {
   stages {
     stage('Build result') {
       steps {
-        sh 'docker build -t dockersamples/result ./result'
+        sh 'docker build -t bedrettinyuce/result ./result'
       }
     } 
     stage('Build vote') {
       steps {
-        sh 'docker build -t dockersamples/vote ./vote'
+        sh 'docker build -t bedrettinyuce/vote ./vote'
       }
     }
     stage('Build worker') {
       steps {
-        sh 'docker build -t dockersamples/worker ./worker'
+        sh 'docker build -t bedrettinyuce/worker ./worker'
       }
     }
     stage('Push result image') {
@@ -21,8 +21,8 @@ pipeline {
         branch 'master'
       }
       steps {
-        withDockerRegistry(credentialsId: 'dockerbuildbot-index.docker.io', url:'') {
-          sh 'docker push dockersamples/result'
+        withDockerRegistry(credentialsId: 'dockerhub', url:'') {
+          sh 'docker push bedrettinyuce/result'
         }
       }
     }
@@ -31,8 +31,8 @@ pipeline {
         branch 'master'
       }
       steps {
-        withDockerRegistry(credentialsId: 'dockerbuildbot-index.docker.io', url:'') {
-          sh 'docker push dockersamples/vote'
+        withDockerRegistry(credentialsId: 'dockerhub', url:'') {
+          sh 'docker push bedrettinyuce/vote'
         }
       }
     }
@@ -41,8 +41,8 @@ pipeline {
         branch 'master'
       }
       steps {
-        withDockerRegistry(credentialsId: 'dockerbuildbot-index.docker.io', url:'') {
-          sh 'docker push dockersamples/worker'
+        withDockerRegistry(credentialsId: 'dockerhub', url:'') {
+          sh 'docker push bedrettinyuce/worker'
         }
       }
     }
