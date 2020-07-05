@@ -17,9 +17,6 @@ pipeline {
       }
     }
     stage('Push result image') {
-      when {
-        branch 'master'
-      }
       steps {
         withDockerRegistry(credentialsId: 'dockerhub', url:'') {
           sh 'docker push bedrettinyuce/result'
@@ -27,9 +24,6 @@ pipeline {
       }
     }
     stage('Push vote image') {
-      when {
-        branch 'master'
-      }
       steps {
         withDockerRegistry(credentialsId: 'dockerhub', url:'') {
           sh 'docker push bedrettinyuce/vote'
@@ -37,9 +31,6 @@ pipeline {
       }
     }
     stage('Push worker image') {
-      when {
-        branch 'master'
-      }
       steps {
         withDockerRegistry(credentialsId: 'dockerhub', url:'') {
           sh 'docker push bedrettinyuce/worker'
