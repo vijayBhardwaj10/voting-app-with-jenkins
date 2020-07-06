@@ -138,7 +138,7 @@ spec:
     spec:
       containers:
       - name: result
-        image: bedrettinyuce/voteresult:latest
+        image: bedrettinyuce/result:latest
         ports:
         - containerPort: 80
           name: result
