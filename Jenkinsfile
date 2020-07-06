@@ -46,6 +46,6 @@ pipeline {
 	  steps {
 	    kubernetesDeploy configs: 'kube-deployment.yml', kubeConfig: [path: ''], kubeconfigId: 'kubeconf'
       }
-	}
+    }
   }
 }
