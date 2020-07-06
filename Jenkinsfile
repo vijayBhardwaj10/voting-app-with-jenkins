@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-	stage('Snyk scan') {
+    stage('Snyk scan') {
 	  steps {
-		snykSecurity additionalArguments: '--all-projects', projectName: 'example-voting-app', snykInstallation: 'snyk', snykTokenId: 'SNYK_TOKEN'
+		snykSecurity additionalArguments: snykInstallation: 'snyk', snykTokenId: 'SNYK_TOKEN'
 	  }
 	}
     stage('Build result') {
