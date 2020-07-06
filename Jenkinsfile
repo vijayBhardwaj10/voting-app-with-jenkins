@@ -23,21 +23,21 @@ pipeline {
     }
     stage('Push result image') {
       steps {
-        withDockerRegistry(credentialsId: 'dockerhub' url: '') {
+        withDockerRegistry(credentialsId: 'dockerhub', url: '') {
           sh 'docker push bedrettinyuce/result'
         }
       }
     }
     stage('Push vote image') {
       steps {
-        withDockerRegistry(credentialsId: 'dockerhub' url: '') {
+        withDockerRegistry(credentialsId: 'dockerhub', url: '') {
           sh 'docker push bedrettinyuce/vote'
         }
       }
     }
     stage('Push worker image') {
       steps {
-        withDockerRegistry(credentialsId: 'dockerhub' url: '') {
+        withDockerRegistry(credentialsId: 'dockerhub', url: '') {
           sh 'docker push bedrettinyuce/worker'
         }
       }
