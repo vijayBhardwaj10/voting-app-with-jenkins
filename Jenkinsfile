@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Snyk scan') {
 	  steps {
-		snykSecurity additionalArguments: snykInstallation: 'snyk', snykTokenId: 'SNYK_TOKEN'
+		snykSecurity additionalArguments: '--all-projects' snykInstallation: 'snyk', snykTokenId: 'SNYK_TOKEN'
 	  }
 	}
     stage('Build result') {
