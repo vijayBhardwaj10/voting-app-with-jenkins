@@ -42,5 +42,10 @@ pipeline {
         }
       }
     }
+	stage('Deploy to Kubernetes') {
+	  steps {
+	    kubernetesDeploy configs: 'kube-deployment.yml', kubeconfigId: 'kubeconf
+      }
+	}
   }
 }
