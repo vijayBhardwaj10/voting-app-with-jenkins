@@ -23,28 +23,28 @@ pipeline {
     }
     stage('Push result image') {
       steps {
-        withDockerRegistry(credentialsId: 'dockerhub', url:'') {
+        withDockerRegistry(credentialsId: 'dockerhub') {
           sh 'docker push bedrettinyuce/result'
         }
       }
     }
     stage('Push vote image') {
       steps {
-        withDockerRegistry(credentialsId: 'dockerhub', url:'') {
+        withDockerRegistry(credentialsId: 'dockerhub') {
           sh 'docker push bedrettinyuce/vote'
         }
       }
     }
     stage('Push worker image') {
       steps {
-        withDockerRegistry(credentialsId: 'dockerhub', url:'') {
+        withDockerRegistry(credentialsId: 'dockerhub') {
           sh 'docker push bedrettinyuce/worker'
         }
       }
     }
     stage('Deploy to Kubernetes') {
       steps {
-        kubernetesDeploy configs: 'kube-deployment.yml', kubeconfigId: 'kubeconf'
+        kubernetesDeploy(configs: 'kube-deployment.yml', kubeconfigId: 'kubeconf')
       }
     }
   }
