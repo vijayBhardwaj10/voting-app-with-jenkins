@@ -204,4 +204,3 @@ spec:
       containers: 
       - image: bedrettinyuce/worker:latest
         name: worker
-# deneme satırı
