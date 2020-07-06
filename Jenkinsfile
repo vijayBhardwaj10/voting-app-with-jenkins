@@ -1,6 +1,11 @@
 pipeline {
   agent any
   stages {
+	stage('Snyk scan') {
+	  steps {
+		snykSecurity additionalArguments: '--all-projects', projectName: 'example-voting-app', snykInstallation: 'snyk', snykTokenId: 'SNYK_TOKEN'
+	  }
+	}
     stage('Build result') {
       steps {
         sh 'docker build -t bedrettinyuce/result ./result'
